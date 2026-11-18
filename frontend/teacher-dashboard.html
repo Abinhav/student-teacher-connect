@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Teacher Dashboard</h1>
+        <p>Welcome to Student Teacher Connect</p>
+
+        <div class="auth-box">
+            <img
+                id="teacherImage"
+                src="assets/default-profile.png"
+                alt="Teacher Profile"
+                width="120"
+            >
+
+            <h2 id="teacherName">Loading...</h2>
+
+            <p>Subject: <span id="teacherSubject"></span></p>
+            <p>Experience: <span id="teacherExperience"></span></p>
+            <p>Qualification: <span id="teacherQualification"></span></p>
+            <p>About: <span id="teacherAbout"></span></p>
+
+            <button
+                type="button"
+                onclick="toggleTeacherUpdateForm()"
+            >
+                Update Profile
+            </button>
+        </div>
+
+        <div
+            class="auth-box"
+            id="teacherUpdateSection"
+            style="display: none;"
+        >
+
+            <h2>Update Your Profile</h2>
+
+            <form id="uploadTeacherImageForm">
+
+                <h3>Update Profile Picture</h3>
+
+                <img
+                    id="teacherImagePreview"
+                    src="assets/default-profile.png"
+                    alt="Profile Preview"
+                    width="100"
+                >
+
+                <input
+                    type="file"
+                    id="teacherImageFile"
+                    accept=".jpg,.jpeg,.png"
+                    required
+                >
+
+                <button type="submit">Upload Picture</button>
+
+            </form>
+
+            <p id="teacherImageUploadMessage"></p>
+
+            <hr>
+
+            <form id="updateTeacherForm">
+
+                <h3>Update Personal Details</h3>
+
+                <input
+                    type="text"
+                    id="editSubject"
+                    placeholder="Subject"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="editExperience"
+                    placeholder="Experience in years"
+                    min="0"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="editQualification"
+                    placeholder="Qualification"
+                    required
+                >
+
+                <textarea
+                    id="editAbout"
+                    placeholder="About yourself"
+                ></textarea>
+
+                <button type="submit">Save Changes</button>
+
+                <button
+                    type="button"
+                    onclick="toggleTeacherUpdateForm()"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+            <p id="updateTeacherMessage"></p>
+
+        </div>
+
+        <div class="auth-box">
+            <h2>Search Students</h2>
+
+            <input
+                type="text"
+                id="searchPlace"
+                placeholder="Enter native place"
+            >
+
+            <button type="button" onclick="searchStudents()">
+                Search
+            </button>
+
+            <button type="button" onclick="resetStudentSearch()">
+                Show All Students
+            </button>
+
+            <p id="searchMessage"></p>
+
+            <div id="studentsList">
+                Loading students...
+            </div>
+        </div>
+
+        <div class="auth-box">
+            <h2>Explore Other Teachers</h2>
+
+            <input
+                type="text"
+                id="searchTeacherSubject"
+                placeholder="Enter subject (Python, Java...)"
+            >
+
+            <button type="button" onclick="searchOtherTeachers()">
+                Search Teachers
+            </button>
+
+            <button type="button" onclick="resetOtherTeacherSearch()">
+                Show All Teachers
+            </button>
+
+            <p id="otherTeacherSearchMessage"></p>
+
+            <div id="otherTeachersList">
+                Loading teachers...
+            </div>
+        </div>
+
+        <div id="otherTeacherDetailsContainer"></div>
+
+        <div class="auth-box">
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="js/teacher-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Dashboard</h1>
+        <p>Welcome to Student Teacher Connect</p>
+
+        <div class="auth-box">
+            <img
+                id="studentImage"
+                src="assets/default-profile.png"
+                alt="Student Profile"
+                width="120"
+            >
+
+            <h2 id="studentName">Loading...</h2>
+
+            <p>Age: <span id="studentAge"></span></p>
+            <p>Registration Number: <span id="studentReg"></span></p>
+            <p>Native Place: <span id="studentPlace"></span></p>
+            <p>Progress: <span id="studentProgress"></span></p>
+
+            <button
+                type="button"
+                onclick="toggleUpdateProfileForm()"
+            >
+                Update Profile
+            </button>
+        </div>
+
+        <div class="auth-box" id="updateProfileSection" style="display: none;">
+
+            <h2>Update Your Profile</h2>
+
+            <form id="uploadImageForm">
+                <h3>Update Profile Picture</h3>
+
+                <img
+                    id="studentImagePreview"
+                    src="assets/default-profile.png"
+                    alt="Profile Preview"
+                    width="100"
+                >
+
+                <input
+                    type="file"
+                    id="profileImageFile"
+                    accept=".jpg,.jpeg,.png"
+                    required
+                >
+
+                <button type="submit">Upload Picture</button>
+            </form>
+
+            <p id="imageUploadMessage"></p>
+
+            <hr>
+
+            <form id="updateProfileForm">
+
+                <h3>Update Personal Details</h3>
+
+                <input
+                    type="number"
+                    id="editAge"
+                    placeholder="Age"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="editReg"
+                    placeholder="Registration Number"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="editPlace"
+                    placeholder="Native Place"
+                    required
+                >
+
+                <textarea
+                    id="editProgress"
+                    placeholder="Update your progress"
+                ></textarea>
+
+                <button type="submit">Save Changes</button>
+
+                <button
+                    type="button"
+                    onclick="toggleUpdateProfileForm()"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+            <p id="updateMessage"></p>
+
+        </div>
+
+        <div class="auth-box">
+            <h2>Search Teachers</h2>
+
+            <input
+                type="text"
+                id="searchSubject"
+                placeholder="Enter subject (Python, Java...)"
+            >
+
+            <button type="button" onclick="searchTeachers()">
+                Search
+            </button>
+
+            <button type="button" onclick="resetTeacherSearch()">
+                Show All Teachers
+            </button>
+
+            <p id="teacherSearchMessage"></p>
+
+            <div id="teachersList">
+                Search for teachers by subject.
+            </div>
+        </div>
+
+        <div id="teacherDetailsContainer"></div>
+
+        <div class="auth-box">
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="js/student-dashboard.js"></script>
+</body>
+</html>
